@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordinateurs Gamer - Accueil</title>
+    <style>
+        /* Style global */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff0000, #00ff00, #0000ff);
+            background-size: 400% 400%;
+            animation: backgroundShift 8s infinite;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes backgroundShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* En-tête */
+        header {
+            width: 100%;
+            padding: 1em;
+            background-color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Titre animé */
+        header h1 {
+            font-size: 1.5em;
+            background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleAnimation 5s linear infinite;
+            margin-left: 1em;
+        }
+
+        @keyframes titleAnimation {
+            0% { background-position: 0%; }
+            100% { background-position: 100%; }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2em;
+            margin-right: 1em;
+        }
+
+        nav a {
+            color: #00ff6c;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Section Accueil */
+        #accueil {
+            width: 90%;
+            max-width: 1200px;
+            padding: 2em;
+            text-align: center;
+        }
+
+        /* Section Produits */
+        main {
+            width: 90%;
+            max-width: 1200px;
+            padding: 2em;
+            text-align: center;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: center;
+        }
+
+        .product {
+            background-color: #333;
+            padding: 2em;
+            border-radius: 10px;
+            width: 300px;
+            text-align: left;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1em;
+        }
+
+        .product h2 {
+            color: #00ff6c;
+            margin-bottom: 0.5em;
+        }
+
+        .product .price {
+            font-size: 1.2em;
+            color: #ff6347;
+            margin-bottom: 0.5em;
+        }
+
+        .product button {
+            background-color: #00ff6c;
+            color: #000;
+            padding: 0.8em 1.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1em;
+            width: 100%;
+        }
+
+        /* Détails du produit */
+        #product-details {
+            display: none;
+            background-color: #333;
+            padding: 2em;
+            border-radius: 10px;
+            color: #fff;
+            width: 100%;
+            max-width: 800px;
+            margin: 2em auto;
+            text-align: center;
+        }
+
+        #product-details img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-bottom: 1em;
+        }
+
+        #product-details h2 {
+            color: #00ff6c;
+        }
+
+        /* Section de paiement */
+        #payment-section {
+            display: none;
+            background-color: #222;
+            padding: 2em;
+            border-radius: 10px;
+            color: #00ff6c;
+            width: 100%;
+            max-width: 600px;
+            margin: 2em auto;
+            text-align: center;
+        }
+
+        #payment-section button {
+            background-color: #00ff6c;
+            color: #000;
+            padding: 0.8em 1.5em;
+            margin-top: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Logos de paiement */
+        .payment-logo {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1em;
+        }
+
+        /* Pied de page */
+        footer {
+            width: 100%;
+            background-color: #000;
+            padding: 1em;
+            text-align: center;
+            color: #00ff6c;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <h1>Ordinateurs Gamer</h1>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#produits">Produits</a></li>
+                <li><a href="#panier">Panier <span class="cart-icon">🛒</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section Accueil -->
+    <section id="accueil">
+        <h2>Bienvenue sur notre boutique d'ordinateurs gamer !</h2>
+        <p>Découvrez nos ordinateurs puissants et optimisés pour une expérience de jeu inégalée.</p>
+    </section>
+
+    <!-- Section Produits -->
+    <main id="main-section">
+        <section id="produits">
+            <h2>Nos Produits</h2>
+            <div class="product-list">
+                <div class="product" onclick="showProductDetails('PC Gamer Ultimate', 'Carte graphique NVIDIA RTX 3080, processeur Intel i9, 32 Go RAM.', '1999€', 'https://via.placeholder.com/300?text=PC+Gamer+Ultimate')">
+                    <img src="https://via.placeholder.com/300?text=PC+Gamer+Ultimate" alt="PC Gamer Ultimate">
+                    <h2>PC Gamer Ultimate</h2>
+                    <p class="price">1999€</p>
+                </div>
+
+                <div class="product" onclick="showProductDetails('PC Gamer Elite', 'Carte graphique NVIDIA RTX 3070, processeur AMD Ryzen 7, 16 Go RAM.', '1599€', 'https://via.placeholder.com/300?text=PC+Gamer+Elite')">
+                    <img src="https://via.placeholder.com/300?text=PC+Gamer+Elite" alt="PC Gamer Elite">
+                    <h2>PC Gamer Elite</h2>
+                    <p class="price">1599€</p>
+                </div>
+
+                <div class="product" onclick="showProductDetails('PC Gamer Starter', 'Carte graphique GTX 1660, processeur Intel i5, 8 Go RAM.', '999€', 'https://via.placeholder.com/300?text=PC+Gamer+Starter')">
+                    <img src="https://via.placeholder.com/300?text=PC+Gamer+Starter" alt="PC Gamer Starter">
+                    <h2>PC Gamer Starter</h2>
+                    <p class="price">999€</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Détails du produit -->
+    <section id="product-details">
+        <img id="detail-product-image" src="" alt="Image du produit">
+        <h2 id="detail-product-name"></h2>
+        <p id="detail-product-description"></p>
+        <p id="detail-product-price" class="price"></p>
+        <button onclick="goToPayment()">Acheter</button>
+        <button onclick="returnToProducts()">Retourner</button>
+    </section>
+
+    <!-- Section de paiement -->
+    <section id="payment-section">
+        <h2>Méthodes de paiement</h2>
+        <p>Veuillez choisir un mode de paiement :</p>
+
+        <div class="payment-option">
+            <img class="payment-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/PayPal.svg/1280px-PayPal.svg.png" alt="Logo PayPal">
+            <button>PayPal</button>
+        </div>
+
+        <div class="payment-option">
+            <img class="payment-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Bank_card_icon.svg/1024px-Bank_card_icon.svg.png" alt="Logo Carte Bancaire">
+            <button>Carte Bancaire</button>
+        </div>
+
+        <div class="payment-option">
+            <img class="payment-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Apple_Pay_logo.svg/1024px-Apple_Pay_logo.svg.png" alt="Logo Apple Pay">
+            <button>Apple Pay</button>
+        </div>
+
+        <button onclick="returnToProducts()">Retourner aux produits</button>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 Ordinateurs Gamer. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function showProductDetails(name, description, price, imageUrl) {
+            document.getElementById('detail-product-name').textContent = name;
+            document.getElementById('detail-product-description').textContent = description;
+            document.getElementById('detail-product-price').textContent = price;
+            document.getElementById('detail-product-image').src = imageUrl;
+
+            document.getElementById('product-details').style.display = 'block';
+            document.getElementById('main-section').style.display = 'none';
+        }
+
+        function goToPayment() {
+            document.getElementById("product-details").style.display = "none";
+            document.getElementById("payment-section").style.display = "block";
+        }
+
+        function returnToProducts() {
+            document.getElementById("product-details").style.display = "none";
+            document.getElementById("payment-section").style.display = "none";
+            document.getElementById("main-section").style.display = "block";
+        }
+    </script>
+</body>
+</html>
